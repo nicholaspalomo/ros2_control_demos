@@ -34,7 +34,7 @@ inline void rosPose2iDynTreeTransform(geometry_msgs::msg::Pose pose, iDynTree::T
     T.setPosition(p);
 
     iDynTree::Rotation R;
-    iDynTree::Vector4 quat([pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w], 4);
+    iDynTree::Vector4 quat([pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w]);
     R.fromQuaternion(quat); // verify which quaternion parameterization is being used by iDynTree
 
     T.setRotation(R);

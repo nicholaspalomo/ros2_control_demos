@@ -268,7 +268,13 @@ void InverseKinematicsNLP::set_current_robot_configuration(geometry_msgs::msg::P
 
     // NOTE: for the inverse kinematics, we only care about the joint positions in the joint serialization
     iDynTree::Transform H;
-    rosPose2iDynTreeTransform(base_pose, H);
+    rosPose2iDynTreeTransform(base_pose, H); // convert the base pose message into an iDynTree transform data structure
+
+    iDynTree::VectorDynSize q(joint_positions.position.size());
+    q = joint_positions.position;
+
+    // Set the robot configuration in the model
+    // if(!ik_)
 
 }
 
